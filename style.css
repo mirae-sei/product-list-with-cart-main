@@ -1,0 +1,198 @@
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url('../assets/fonts/static/RedHatText-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url('../assets/fonts/static/RedHatText-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url('../assets/fonts/static/RedHatText-SemiBold.ttf') format('truetype');
+  font-weight: 600; /* Semi-bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url('../assets/fonts/RedHatText-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url('../assets/fonts/RedHatText-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* Specify the range for variable font */
+  font-style: normal;
+}
+
+:root {
+  --color-red: hsl(14, 86%, 42%);
+  --color-green: hsl(159, 69%, 38%);
+  
+  --color-rose-50: hsl(20, 50%, 98%);
+  --color-rose-100: hsl(13, 31%, 94%);
+  --color-rose-300: hsl(14, 25%, 72%);
+  --color-rose-400: hsl(7, 20%, 60%);
+  --color-rose-500: hsl(12, 20%, 44%);
+  --color-rose-900: hsl(14, 65%, 9%);
+}
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+body{
+  font-family: 'Red Hat Text';
+}
+
+
+.title{
+  margin-left: 6%;
+}
+
+
+.body{
+  display: flex;
+  flex-direction: row;
+  
+  width: 80%;
+  gap: 1em;
+  margin: auto;
+  
+}
+
+.flex-box-container{
+  display: grid;  
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr)); /* Max 3 columns */
+  
+
+  gap: 1.5em;
+  max-width: 70%;
+  background-color: var(--color-rose-50);
+  
+
+}
+
+
+/*for product container*/
+.product-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  overflow:hidden;
+}
+
+
+.image-and-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-and-button > img{
+  width: 100%;
+  border-radius: 10px;
+  z-index: 0;
+
+}
+
+.image-and-button > button{
+  height: 18%;
+  width: 70%;
+  margin-top: -20px;
+  z-index: 9999;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 50px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+
+}
+
+.product-name{
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-rose-900);
+
+}
+
+.product-category{
+  font-weight: 100;
+  font-size: 13px;
+  color: var(--color-rose-500);
+}
+
+/*for product container*/
+
+
+/*for order summary*/
+
+.remove-btn{
+ border-color: #CAAFA7;
+ border-style: solid;
+ border-width: 1px;
+ border-radius:10px;
+ width: 18px;
+ background-color: white;
+ padding: 1px 1px 0px 1px;
+}
+
+.cart-summary{
+  background-color: rgb(202, 218, 116);
+  
+  width: 30%
+  
+}
+
+/*for order summary*/
+
+
+
+@media(max-width : 905px){
+  .add-to-cart > p{
+    display: none;
+    background-color: red;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  .body{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-box-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .cart-summary{
+    width: 100%;
+  }
+  .add-to-cart > p{
+    display: block;
+    background-color: red;
+  }
+
+}
+
