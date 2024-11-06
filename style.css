@@ -55,32 +55,42 @@
 
 body{
   font-family: 'Red Hat Text';
+  background-color: var(--color-rose-50);
 }
 
 
-.title{
-  margin-left: 6%;
-}
+
 
 
 .body{
   display: flex;
   flex-direction: row;
   
-  width: 80%;
+  width: 90%;
   gap: 1em;
   margin: auto;
+  margin-top: 5vh;
+
   
+}
+
+.products-grid {
+    width: 70%;
+}
+
+.title{
+  margin-bottom: 5%;
 }
 
 .flex-box-container{
   display: grid;  
   grid-template-columns: repeat(auto-fill, minmax(25%, 1fr)); /* Max 3 columns */
-  
-
   gap: 1.5em;
-  max-width: 70%;
-  background-color: var(--color-rose-50);
+  max-width: 100%;
+  
+  
+  
+  
   
 
 }
@@ -91,7 +101,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   overflow:hidden;
 }
 
@@ -110,9 +120,10 @@ body{
 }
 
 .image-and-button > button{
-  height: 18%;
-  width: 70%;
-  margin-top: -20px;
+  height: 15%;
+  max-width: 70%;
+  min-width: 50%;
+  margin-top: -14px;
   z-index: 9999;
   padding: 10px;
   display: flex;
@@ -123,20 +134,43 @@ body{
   border-style: solid;
   border-width: 1px;
   overflow: hidden;
+  font-weight:600;
+  border-color: var(--color-rose-400);
+  background-color:var(--color-rose-50);
+  font-size: 0.5em;
+  color: var(--color-rose-900);
+  
 
 }
 
+.image-and-button > button > img{
+   max-width: 1.3em;
+}
+
+
+.add-to-cart > p {
+  font-size: 1em;
+}
+
 .product-name{
-  font-size: 16px;
+  font-size: 1.1em;
   font-weight: 600;
+  margin-bottom: .2em;
   color: var(--color-rose-900);
 
 }
 
 .product-category{
-  font-weight: 100;
-  font-size: 13px;
+  font-weight: 400;
+  font-size: 0.8em;
+  margin-bottom: 0.3em;
   color: var(--color-rose-500);
+}
+
+.price{
+  color:var(--color-red);
+  font-weight: 500;
+  font-size: 1.1em;
 }
 
 /*for product container*/
@@ -154,23 +188,36 @@ body{
  padding: 1px 1px 0px 1px;
 }
 
-.cart-summary{
+.cart-summary-container{
   background-color: rgb(202, 218, 116);
   
-  width: 30%
+  width: 40%
   
 }
+
+.cart-summary{
+  padding: 1em;
+  padding-top: 1.5em;
+  padding-left: 1.5em;
+}
+
+.cart-summary > h1 {
+  font-size: 1.7em;
+  color: var(--color-red);
+  margin-bottom: 0.8em;
+}
+
+.product-order-details{
+  display: flex;
+
+}
+
 
 /*for order summary*/
 
 
 
-@media(max-width : 905px){
-  .add-to-cart > p{
-    display: none;
-    background-color: red;
-  }
-}
+
 
 
 
@@ -184,6 +231,7 @@ body{
     display: flex;
     flex-direction: column;
     max-width: 100%;
+    
   }
 
   .cart-summary{
@@ -191,8 +239,18 @@ body{
   }
   .add-to-cart > p{
     display: block;
-    background-color: red;
+    font-size: 90%;
+  
   }
+
+  .image-and-button > button{
+    
+    font-size: 0.8em;
+    
+  
+  }
+
+  
 
 }
 
