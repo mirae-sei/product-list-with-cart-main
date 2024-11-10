@@ -78,7 +78,7 @@ body{
 
 .products-grid {
     width: 65%;
-    border: red solid;
+    
 }
 
 .title{
@@ -141,7 +141,7 @@ body{
   font-weight:600;
   border-color: var(--color-rose-400);
   background-color:var(--color-rose-50);
-  font-size: 0.5em;
+  font-size: .7em;
   color: var(--color-rose-900);
   
 
@@ -309,7 +309,7 @@ body{
   background-color: var(--color-rose-100);
   padding: 15px 2em;
   text-align: center;
-  display: flex;
+  
   font-size: smaller;
   border-radius: 5px;
 
