@@ -147,6 +147,9 @@ body{
 
 }
 
+.order-summary{
+  display: block;
+}
 .image-and-button > button > img{
    max-width: 1.3em;
 }
@@ -214,6 +217,7 @@ body{
   color: var(--color-red);
   margin-bottom: 0.8em;
   
+  
 }
 
 .product-order-details{
@@ -266,7 +270,8 @@ body{
   display: flex;
   flex-direction: row;
   gap: .5em;
-  justify-content: space-between;
+  
+  
 }
 /*inidividual order*/
 .remove-item-button{
@@ -323,7 +328,7 @@ body{
 
 
 
-.cart-summary > :last-child {
+.confirm-order-button {
   width: 100%;
   background-color: var(--color-red);
   margin-top: 1.5em;
@@ -332,6 +337,30 @@ body{
   border-style: none;
   border-radius: 50px;
 }
+
+
+
+
+
+
+.empty-cart > img{
+  margin-left: 30%;
+  width: 50%;
+
+}
+
+.empty-cart > p{
+  text-align: center;
+  padding-bottom: 2em;
+  color: var(--color-rose-500);
+}
+
+.empty-cart{
+  display: none;
+  
+}
+
+
 
 
 
@@ -359,9 +388,11 @@ body{
     
   }
   .cart-summary{
-    padding-left: 0em;
+    padding-left: 1em;
     max-width: 100%;
   }
+
+  
   .add-to-cart > p{
     display: block;
     font-size: 90%;
@@ -377,5 +408,35 @@ body{
 
   
 
+}
+
+
+
+/* Tablet screens */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Add your styles here */
+  .image-and-button > button{
+    height: 15%;
+    max-width: 70%;
+    min-width: 50%;
+    margin-top: -14px;
+    z-index: 9999;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 50px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    font-weight:600;
+    border-color: var(--color-rose-400);
+    background-color:var(--color-rose-50);
+    font-size: .5em;
+    color: var(--color-rose-900);
+    
+  
+  }
 }
 
