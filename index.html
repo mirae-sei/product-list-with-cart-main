@@ -1,161 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" category="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Frontend Mentor | Product list with cart</title>
+    <link rel="icon" category="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Frontend Mentor | Product list with cart</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-<div>
-  <h1 class="title">Desserts</h1>
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution { font-size: 11px; text-align: center; }
+      .attribution a { color: hsl(228, 45%, 44%); }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="body">
+        <div class="products-grid">
+          <h1 class="title">Desserts</h1>
 
-  <div class="body">
-
-  <div class="flex-box-container">
-
-    <div class="product-container">
-      <div class="image-and-button">
-        <img src="../assets/images/image-waffle-desktop.jpg">
-        <button> Add to Cart</button>
-      </div>
-      <div class="product-info">
-        <p class="product-category">Waffle</p>
-        <h3 class="product-name">Waffle with Berries</h3>
-        <h3>$6.50</h3>
-      </div>
-    </div>
-
-    <div class="product-container">
-      <div class="image-and-button">
-        <img src="../assets/images/image-waffle-desktop.jpg">
-        <button class="add-to-cart"> 
-          <img src="../assets/images/icon-add-to-cart.svg">
-          <p>Add to Cart</p>
-        </button>
-      </div>
-      <div class="product-info">
-        <p class="product-category">Waffle</p>
-        <h3 class="product-name">Waffle with Berries</h3>
-        <h3>$6.50</h3>
-      </div>
-    </div>
-
-    <div class="product-container">
-      <div class="image-and-button">
-        <img src="../assets/images/image-waffle-desktop.jpg">
-        <button> Add to Cart</button>
-      </div>
-      <div class="product-info">
-        <p class="product-category">Waffle</p>
-        <h3 class="product-name">Waffle with Berries</h3>
-        <h3>$6.50</h3>
-      </div>
-    </div>
-
-
-    <div class="product-container">
-      <div class="image-and-button">
-        <img src="../assets/images/image-waffle-desktop.jpg">
-        <button> Add to Cart</button>
-      </div>
-      <div class="product-info">
-        <p class="product-category">Waffle</p>
-        <h3 class="product-name">Waffle with Berries</h3>
-        <h3>$6.50</h3>
-      </div>
-    </div>
-
-    <div class="product-container">
-      <div class="image-and-button">
-        <img src="../assets/images/image-waffle-desktop.jpg">
-        <button> Add to Cart</button>
-      </div>
-      <div class="product-info">
-        <p class="product-category">Waffle</p>
-        <h3 class="product-name">Waffle with Berries</h3>
-        <h3>$6.50</h3>
-      </div>
-    </div>
-
-    <div class="product-container">
-      <div class="image-and-button">
-        <img src="../assets/images/image-waffle-desktop.jpg">
-        <button> Add to Cart</button>
-      </div>
-      <div class="product-info">
-        <p class="product-category">Waffle</p>
-        <h3 class="product-name">Waffle with Berries</h3>
-        <h3>$6.50</h3>
-      </div>
-    </div>
-
-    <div class="product-container">
-      <div class="image-and-button">
-        <img src="../assets/images/image-waffle-desktop.jpg">
-        <button> Add to Cart</button>
-      </div>
-      <div class="product-info">
-        <p class="product-category">Waffle</p>
-        <h3 class="product-name">Waffle with Berries</h3>
-        <h3>$6.50</h3>
-      </div>
-    </div>
-
-    <div class="product-container">
-      <div class="image-and-button">
-        <img src="../assets/images/image-waffle-desktop.jpg">
-        <button> Add to Cart</button>
-      </div>
-      <div class="product-info">
-        <p class="product-category">Waffle</p>
-        <h3 class="product-name">Waffle with Berries</h3>
-        <h3>$6.50</h3>
-      </div>
-    </div>
-   
-  </div>
-
-  
-  <div class="cart-summary">
-    <h1>Your Cart</h1>
-    <div class="all-products">
-      <div>
-
-        <div class="product-order-info">
-          <p>Classic Tiramisu</p>
-          <div class="order-numbers">
-            <p>1x</p>
-            <p>@ %5.50</p>
-            <p>$5.50</p>
+          <div class="flex-box-container">
           </div>
         </div>
 
-      </div>
-      <button class="remove-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10"><path fill="#CAAFA7" d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"/></svg>
-      </button>
+        <div class="cart-summary-container">
+          <div class="cart-summary">
+            <h1 class="order-count"></h1>
+            <div class="order-summary">
+              <div class="order-list">
+                
+              </div>
 
+              <div class="order-total">
+                <p>Order Total</p>
+                <p class="order-total-price">$0.00</p>
+              </div>
+
+              <p class="tag">
+                <img src="./assets/images/icon-carbon-neutral.svg">This is a<span>carbon-neutral</span> delivery
+              </p>
+              <button class="confirm-order-button">Confirm Order</button>
+            </div>
+
+            <div class="empty-cart">
+              <img src="./assets/images/illustration-empty-cart.svg">
+              <p>Your added items will appear here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-
-  </div>
-
-
-
-
-
-</div>
-
-</div>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
