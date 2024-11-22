@@ -10,7 +10,10 @@ let orderTotalPrice = document.querySelector('.order-total-price');
 let orderCountHTML = document.querySelector('.order-count');
 
 let orderSummary = document.querySelector('.order-summary');
-let emptyCart
+
+
+
+
 
 // Function to fetch product data and display products
 function fetchAndDisplay() {
@@ -47,6 +50,7 @@ function fetchAndDisplay() {
 
       gridContainer.innerHTML = productsHTML; // Update container with product HTML
       addToCart(); // Initialize add-to-cart functionality
+      
     })
     .catch(error => {
       console.error(error); // Log any errors during fetch
@@ -78,6 +82,7 @@ function addToCart() {
 
       // If the product is not in the cart, add it
       if (!isInCart) {
+        
         products.forEach(product => {
           if (productId === product.name) {
             // Create a new cart item
@@ -89,15 +94,19 @@ function addToCart() {
             };
 
             cart.push(newProduct); // Add new product to the cart
+           
+          
           }
         });
       }
 
-      renderCart(); // Update the cart display
+      renderCart(); // Update the cart displayr\
+      removeItem();
       renderOrderTotal();
       cartVisibility();
-      console.log(productId); // Debug: Log product ID
-      console.log(cart); // Debug: Log current cart state
+
+      
+     
     });
   });
 }
@@ -105,7 +114,8 @@ function addToCart() {
 // Function to render the shopping cart
 function renderCart() {
   let cartHTML = ''; // Initialize empty HTML for the cart
-
+  
+  
   // Generate HTML for each cart item
   cart.forEach(cartItem => {
     cartHTML += `
@@ -118,13 +128,20 @@ function renderCart() {
             <p>$${(cartItem.totalPrice).toFixed(2)}</p>
           </div>
         </div>
-        <button class="remove-item-button">
+        <button class="remove-item-button" data-product-id="${cartItem.productName}" >
           <img src="./assets/images/icon-remove-item.svg">
         </button>
       </div>`;
+      
+  
   });
 
+  
+
+
+
   listOfOrder.innerHTML = cartHTML;
+  removeItem();
 
   // TODO: Insert cartHTML into the appropriate container (currently missing container reference)
 }
@@ -138,10 +155,10 @@ function renderOrderTotal(){
     orderCount += cartItem.quantity ;
   })
   
-  console.log(orderTotal);
-  console.log(orderCount);
+ 
   orderTotalPrice.innerText = `$${orderTotal.toFixed(2)}`
   orderCountHTML.innerText  = `Your Cart(${orderCount})`
+  
   return orderCount;
 }
 
@@ -168,4 +185,45 @@ function cartVisibility(){
   
 }
 
+
+
+
+function removeItem(){
+  let removeButton = document.querySelectorAll('.remove-item-button');
+  
+  removeButton.forEach((button)=>{
+    button.addEventListener('click' , ()=>{
+    
+      let tempoCart = [];
+      let productId = button.dataset.productId;
+      console.log(productId);
+
+     
+     cart.forEach((item)=>{
+      
+      if(item.productName !== productId){
+        tempoCart.push(item);
+        
+      }
+      cart = tempoCart;
+     })
+      renderCart();
+      renderOrderTotal();
+      cartVisibility();
+      
+
+      
+     
+     
+     
+     
+    })
+  })
+  
+    
+}
+
+
+removeItem();
 cartVisibility();
+
