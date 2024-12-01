@@ -15,6 +15,7 @@ let orderSummary = document.querySelector('.order-summary');
 
 
 
+
 // Function to fetch product data and display products
 function fetchAndDisplay() {
   fetch('data.json')
@@ -39,6 +40,7 @@ function fetchAndDisplay() {
               <button class="add-to-cart-button" data-product-id="${product.name}">
                 <img src="./assets/images/icon-add-to-cart.svg"> Add to Cart
               </button>
+              <button class="add-and-minus-button"> Plus </button>
             </div>
             <div class="product-info">
               <p class="product-category">${product.category}</p>
@@ -64,7 +66,7 @@ fetchAndDisplay();
 function addToCart() {
   // Select all "Add to Cart" buttons
   let addToCartButton = document.querySelectorAll('.add-to-cart-button');
-
+  
   // Iterate through each button
   addToCartButton.forEach(button => {
     button.addEventListener('click', () => {
@@ -77,6 +79,8 @@ function addToCart() {
           cartItem.quantity += 1; // Increment quantity if product exists
           cartItem.totalPrice = cartItem.quantity*cartItem.price;
           isInCart = true;
+          
+         
         }
       });
 
@@ -87,6 +91,7 @@ function addToCart() {
           if (productId === product.name) {
             // Create a new cart item
             let newProduct = {
+              images : product.image,
               productName: product.name,
               quantity: 1,
               price: product.price,
@@ -94,7 +99,9 @@ function addToCart() {
             };
 
             cart.push(newProduct); // Add new product to the cart
-           
+          
+            
+            
           
           }
         });
@@ -150,6 +157,8 @@ function renderCart() {
 function renderOrderTotal(){
   let orderTotal = 0;
   let orderCount = 0;
+
+  
   cart.forEach((cartItem)=>{
     orderTotal += cartItem.totalPrice ;
     orderCount += cartItem.quantity ;
@@ -159,7 +168,9 @@ function renderOrderTotal(){
   orderTotalPrice.innerText = `$${orderTotal.toFixed(2)}`
   orderCountHTML.innerText  = `Your Cart(${orderCount})`
   
-  return orderCount;
+
+  
+  return orderTotal;
 }
 
 
@@ -193,7 +204,7 @@ function removeItem(){
   
   removeButton.forEach((button)=>{
     button.addEventListener('click' , ()=>{
-    
+      
       let tempoCart = [];
       let productId = button.dataset.productId;
       console.log(productId);
@@ -203,6 +214,7 @@ function removeItem(){
       
       if(item.productName !== productId){
         tempoCart.push(item);
+
         
       }
       cart = tempoCart;
@@ -227,3 +239,88 @@ function removeItem(){
 removeItem();
 cartVisibility();
 
+
+function displayModal(){
+  let modalHTML = ``;
+  let confirmOrder = document.querySelector('.confirm-order-button');
+  
+  confirmOrder.addEventListener('click' , ()=>{
+    document.getElementById('overlay').style.display = 'block';
+    document.querySelector('.modal').style.display = 'block';
+    document.querySelector('.body').style.pointerEvents = 'none';
+    
+   
+    
+    cart.forEach(item => {
+      modalHTML  += `
+
+      <div class="item-modal-order">
+            <img src="${item.images.thumbnail}" alt="Waffle Thumbnail">
+            <div class="product-details">
+              <div class="order-details">
+                <p class="order-name">${item.productName}</p>
+                <div class="inner-order-details">
+                  <p>${item.quantity}x</p>
+                  <p class="initial-price">@${item.price.toFixed(2)}</p>
+                </div>
+              </div>
+              <p class="product-price">$${item.totalPrice.toFixed(2)}</p>
+            </div>
+          </div>
+          
+          `;
+
+        
+        
+      
+      
+    });
+
+    displayModal();
+    document.querySelector('.modal-order').innerHTML = modalHTML;
+    renderModalTotalOrder();
+    hideModal();
+    
+    
+    
+  })
+}
+
+displayModal();
+
+function renderModalTotalOrder(){
+  let confirmOrder = document.querySelector('.confirm-order-button');
+  
+    document.querySelector('.modal-order').innerHTML +=
+    `
+    <div class="modal-order-total">
+            <p>Order Total</p>
+            <H2>$${renderOrderTotal().toFixed(2)}</H2>
+          </div>
+    `
+}
+
+function hideModal(){
+  document.querySelector('.overlay').addEventListener('click', ()=>{
+    document.getElementById('overlay').style.display = 'none';
+    document.querySelector('.modal').style.display = 'none';
+    document.querySelector('.body').style.pointerEvents = 'auto';
+
+    cart.splice(0 , cart.length);
+    renderCart();
+    renderOrderTotal();
+    cartVisibility();
+    
+  })
+
+  document.querySelector('.new-order').addEventListener('click' , ()=>{
+    document.getElementById('overlay').style.display = 'none';
+    document.querySelector('.modal').style.display = 'none';
+    document.querySelector('.body').style.pointerEvents = 'auto';
+
+    cart.splice(0 , cart.length);
+    renderCart();
+    renderOrderTotal();
+    cartVisibility();
+  })
+}
