@@ -55,6 +55,7 @@
 
 body{
   font-family: 'Red Hat Text';
+  font-style: 'Red Hat Text';
   background-color: var(--color-rose-50);
 
 }
@@ -145,6 +146,7 @@ body{
   background-color:var(--color-rose-50);
   font-size: .7em;
   color: var(--color-rose-900);
+  display: block;
   
   
 
@@ -171,7 +173,7 @@ body{
   font-size: .7em;
   color: var(--color-rose-900);
   background-color: violet;
-  display: none ;
+  display: block ;
   
 
 }
@@ -259,11 +261,13 @@ body{
 
 
 .order-numbers{
-  font-size: 1.1em;
+  font-size: .8em;
+  
 }
 
 .order-numbers > :nth-child(1){
   color: var(--color-red);
+  
   font-weight: 700;
   
 }
@@ -362,6 +366,11 @@ body{
   padding: 1em 3em;
   border-style: none;
   border-radius: 50px;
+}
+
+.order-details > p{
+  font-weight: 500;
+  color: var(--color-rose-900);
 }
 
 
@@ -624,7 +633,10 @@ body{
   .modal{
     width: 100%;
     position: fixed;
-    top: 15%;
+    top: 10em;
+    bottom: 0;
+    left: 0;
+    right: 0;
     border-radius: 10px;
   }
 

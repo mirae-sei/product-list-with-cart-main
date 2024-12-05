@@ -40,7 +40,7 @@ function fetchAndDisplay() {
               <button class="add-to-cart-button" data-product-id="${product.name}">
                 <img src="./assets/images/icon-add-to-cart.svg"> Add to Cart
               </button>
-              <button class="add-and-minus-button"> Plus </button>
+              
             </div>
             <div class="product-info">
               <p class="product-category">${product.category}</p>
@@ -301,7 +301,7 @@ function renderModalTotalOrder(){
 }
 
 function hideModal(){
-  document.querySelector('.overlay').addEventListener('click', ()=>{
+  document.querySelector('.overlay').addEventListener('dblclick', ()=>{
     document.getElementById('overlay').style.display = 'none';
     document.querySelector('.modal').style.display = 'none';
     document.querySelector('.body').style.pointerEvents = 'auto';
