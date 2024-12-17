@@ -314,6 +314,7 @@ function incrementDecrementButtons() {
         }
       });
       renderCart();
+      renderOrderTotal();
     });
   });
 
