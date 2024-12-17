@@ -205,6 +205,7 @@ function displayModal() {
     document.getElementById('overlay').style.display = 'block';
     document.querySelector('.modal').style.display = 'block';
     document.querySelector('.body').style.pointerEvents = 'none';
+    
 
     cart.forEach(item => {
       modalHTML  += `

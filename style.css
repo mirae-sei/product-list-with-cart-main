@@ -148,6 +148,7 @@ body{
   color: var(--color-rose-900);
 
   display: flex;
+  z-index: 9;
   
   
   
@@ -177,7 +178,7 @@ body{
   height:7%;
   width: 43%;
   margin-top: -18px;
-  z-index: 9999;
+  z-index: 9;
   padding: 10px;
   
   
@@ -499,6 +500,7 @@ body{
  scrollbar-width: none;
  border-radius: 10px;
  display: none;
+ height: max-content;
  
 }
 
